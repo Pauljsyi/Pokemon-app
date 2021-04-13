@@ -13,6 +13,7 @@ const controller = {
   delete: () => {
     console.log('deleted pokemon');
   }
+  
 }
 
 module.exports = controller;
