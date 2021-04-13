@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 // bring in router
-const router = require('./router');
+const router = require('./router')
 
 const Port = process.env.PORT || 5000;
 
@@ -11,6 +11,8 @@ const Port = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 // for static req, express.static
+
+app.use(router)
 
 
 app.listen(Port, () => {

@@ -5,17 +5,9 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
 
-router.get('/getPokemon', (req, res) => {
-  controller.get
-});
-router.post('/addPokemon', (req, res) => {
-  controller.post
-});
-router.put('/updatePokemon', (req, res) => {
-  controller.put
-});
-router.delete('/deletePokemon', (req, res) => {
-  controller.delete
-});
+router.get('/getPokemon', controller.get);
+router.post('/addPokemon',controller.post);
+router.put('/updatePokemon', controller.update);
+router.delete('/deletePokemon', controller.delete);
 
 module.exports = router;
