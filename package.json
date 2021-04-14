@@ -4,7 +4,8 @@
   "description": "add, view and delete pokemon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server/index.js"
   },
   "author": "paul yi",
   "license": "ISC",

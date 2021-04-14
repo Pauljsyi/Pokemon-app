@@ -2,16 +2,19 @@
 
 const controller = {
   get: (req, res) => {
-    res.send('got pokemon');
+    res.send('caught' + " " + req.params.name);
+  },
+  getAll: (req, res) => {
+    res.send('got all pokemon');
   },
   post: (req, res) => {
-    res.send('created pokemon');
+    res.send('pokemon was added to the pokedex');
   },
   update: (req, res) => {
-    res.send('updated pokemon');
+    res.send('updated ' + req.params.name);
   },
   delete: (req, res) => {
-    res.send('deleted pokemon');
+    res.send('removed ' + req.params.name);
   }
 
   

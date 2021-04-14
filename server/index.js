@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 // for static req, express.static
 
-app.use(router)
+//use router
+app.use(router);
 
 
 app.listen(Port, () => {
