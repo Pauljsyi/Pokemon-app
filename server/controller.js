@@ -1,5 +1,7 @@
 // bring in helpers
 
+
+
 const controller = {
   get: (req, res) => {
     res.send('caught' + " " + req.params.name);
@@ -8,6 +10,7 @@ const controller = {
     res.send('got all pokemon');
   },
   post: (req, res) => {
+    
     res.send('pokemon was added to the pokedex');
   },
   update: (req, res) => {
