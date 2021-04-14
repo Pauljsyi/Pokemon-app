@@ -1,3 +1,0 @@
-{
-  "mongoURI": "mongodb://mrpaulyi:mrpaulyi@pokemon-shard-00-00.1wkmk.mongodb.net:27017,pokemon-shard-00-01.1wkmk.mongodb.net:27017,pokemon-shard-00-02.1wkmk.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-d04thl-shard-0&authSource=admin&retryWrites=true&w=majority"
-}
