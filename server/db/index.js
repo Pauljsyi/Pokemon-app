@@ -1,22 +1,17 @@
 //connect to mongoDB
 //require mongoose
 const mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
 const config = require('config');
 const db = config.get('mongoURI')
 
+// console.log(db)
 
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(db, { useMongoClient:true })
-    console.log('MongoDB Connected...')
-} catch(e) {
-    console.error('ERRORRRR!!!',e.message);
+mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
 
-    //Exit Process with failure
-    process.exit(1);
-}
-}
+const connect = mongoose.connection
 
-module.exports = connectDB
+    connect.on("error", console.error.bind(console, "connection error"))
+    connect.once("open", function () {console.log('mongo connected')})
+
+module.exports = connect
