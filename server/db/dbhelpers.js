@@ -10,16 +10,18 @@ const helpers = {
     
   },
   allPokemon: (pokemons) => {
-    return Pokemon.find(pokemons).batchSize(10)
+    return Pokemon.find(pokemons)
   },
   addPokemon: (newPokemon) => {
     return Pokemon.create(newPokemon)
   },
   updatePokemon: (identification) => {
-    return Pokemon.findOneAndUpdate(id: identification)
+    console.log('identification::::', identification)
+    return Pokemon.findOneAndUpdate({id: identification})
   },
-  deletePokemon: () => {
-
+  deletePokemon: (identification) => {
+    console.log('identification for delete operation', identification)
+    return Pokemon.findOneAndDelete({id: identification})
   }
 }
 

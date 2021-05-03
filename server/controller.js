@@ -31,18 +31,19 @@ const controller = {
     console.log(req.body)
     helpers.addPokemon(req.body)
       .then((result) => {
-        res.send(result.name + 'pokemon was added to the pokedex');
+        res.send(result + 'pokemon was added to the pokedex');
       })
       .catch((err) => {
-        console.log(err)
+        console.log("ERRORRR", err)
         res.send(err)
       })
  
   },
   update: (req, res) => {
-    console.log(req.body)
-    helpers.updatePokemon(req.body)
+    console.log(req)
+    helpers.updatePokemon(req.params.id)
     .then((result) => {
+      console.log('result:', result)
       res.send('updated ' + result);
     })
     .catch((err) => {
@@ -52,7 +53,15 @@ const controller = {
   },
   delete: (req, res) => {
     console.log(req.body)
-    res.send('removed ' + req.params.name);
+    helpers.deletePokemon(req.params.id)
+    .then((result) => {
+      res.send('removed ' + result);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.send(err)
+    })
+    
   }
 
   
