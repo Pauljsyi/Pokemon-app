@@ -4,27 +4,34 @@ const helpers = require('../server/db/dbhelpers.js');
 
 const controller = {
   get: (req, res) => {
-
-    // console.log(req.body)
-
-    // const {name, type, abilities, image} = req.body;
-
-
-    console.log(req.body)
-
- 
-
-    res.send('caught' + " " + req.params.name);
+    console.log("req params", req.params)
+    helpers.getOne(req.params.id)
+    .then((result)=> {
+      console.log('returned promise', result)
+      res.send('caught' + " " + result);
+    })
+    .catch((err)=> {
+      console.log(err)
+      res.send(err)
+    })
   },
   getAll: (req, res) => {
-    console.log(req.body)
-    res.send('got all pokemon');
+    // console.log(req.body)
+    helpers.allPokemon(req.params)
+    .then((result) => {
+      console.log("get all results: ", result)
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.send(err)
+    })
   },
   post: (req, res) => {
     console.log(req.body)
     helpers.addPokemon(req.body)
-      .then(() => {
-        res.send('pokemon was added to the pokedex');
+      .then((result) => {
+        res.send(result.name + 'pokemon was added to the pokedex');
       })
       .catch((err) => {
         console.log(err)
@@ -34,7 +41,14 @@ const controller = {
   },
   update: (req, res) => {
     console.log(req.body)
-    res.send('updated ' + req.params.name);
+    helpers.updatePokemon(req.body)
+    .then((result) => {
+      res.send('updated ' + result);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.send(err)
+    })
   },
   delete: (req, res) => {
     console.log(req.body)

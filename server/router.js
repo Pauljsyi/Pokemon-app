@@ -19,7 +19,7 @@ router
     .get(controller.getAll)
     .post(controller.post)
 router
-  .route('/pokemon/:name')
+  .route('/pokemon/:id')
     .get(controller.get)
     .put(controller.update)
     .delete(controller.delete)

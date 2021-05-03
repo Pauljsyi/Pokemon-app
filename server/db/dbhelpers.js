@@ -2,20 +2,25 @@
 const Pokemon = require('./model.js');
 
 const helpers = {
-  get: () => {
-
+  getOne: (identification) => {
+    
+    // console.log(id)
+    // console.log(Pokemon.findOne({id}).schema)
+    return  Pokemon.findOne({id: identification})
+    
+  },
+  allPokemon: (pokemons) => {
+    return Pokemon.find(pokemons).batchSize(10)
   },
   addPokemon: (newPokemon) => {
-  return Pokemon.create(newPokemon)
+    return Pokemon.create(newPokemon)
   },
-  update: () => {
-
+  updatePokemon: (identification) => {
+    return Pokemon.findOneAndUpdate(id: identification)
   },
-  delete: () => {
+  deletePokemon: () => {
 
   }
 }
 
 module.exports = helpers
-
-
